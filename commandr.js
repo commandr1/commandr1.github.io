@@ -7423,6 +7423,7 @@ window.Commandr = (function(){
       // expects any number of strings, followed by a function
       for(var i = 0; i < arguments.length - 1; i++) {
         this.registered.push({"string":arguments[i],"command":arguments[arguments.length-1]});
+        this.initMarquee();
       }
     },
     registerLink: function() {
@@ -7515,7 +7516,8 @@ $(function(){
     borderBottomRightRadius: '15px',
     borderBottomLeftRadius: '15px',
     boxShadow: '2px 2px 1px #888, 2px -2px 1px #888',
-    zIndex: '50'
+    zIndex: '50',
+    opacity: '0.8'
   });
 
   icon.css({
@@ -7566,11 +7568,9 @@ $(function(){
 
 });
 
-console.log("starting registrations");
 Commandr.register("help", Commandr.help.bind(Commandr));
 Commandr.register("scroll down", "go down", function(){$('body').animate({scrollTop: $('body').scrollTop()+ parseInt(screen.height - screen.height*0.15)}, 800);});
 Commandr.register("scroll up", "go up", function(){$('body').animate({scrollTop: $('body').scrollTop()- (screen.height + parseInt(screen.height*0.15))}, 800);});
-Commandr.register("spencer rules",function(){console.log("register worked (spencer rules)");});
 $(function(){
     Commandr.initMarquee();
 });
