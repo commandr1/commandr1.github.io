@@ -43,12 +43,15 @@
 <p>Step 1:</p>
 <pre><code>
 &lt;script type=&quot;text/javascript&quot; src=&quot;https://commandr.me/commandr.js&quot;&gt;&lt;/script&gt;
-</pre></code
+</code></pre>
 <p>Step 2:</p>
 <pre><code>
-$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+//All commands are preceeded by the word "Commander"
+//When the user says "Commander introduction" the registered function is run. The function could do anything.
+Commandr.register("introduction", function() {
+  //In this case, the function will call Commandr.speak which will audibly say "hello world!" to the user.
+  Commandr.speak("hello world!");
+});
 </code></pre>
 
 <p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
